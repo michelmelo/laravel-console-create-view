@@ -49,9 +49,9 @@ class ConsoleView extends Command
         try {
             $this->createTemplate($this->getFile(), $this->getContent());
         } catch (Exception $e) {
-            $this->newLine();
+            //$this->newLine();
             $this->error("Error! {$e->getMessage()}");
-            $this->newLine();
+            //$this->newLine();
             exit;
         }
 
@@ -65,20 +65,20 @@ class ConsoleView extends Command
     {
         if (!file_exists($file)) :
             if (file_put_contents($file, $content)) :
-                $this->newLine();
+                //$this->newLine();
                 $this->info('Hooray!!! New Blade Template Created Successfully. Happy Coding...');
-                $this->newLine();
+                //$this->newLine();
                 $this->comment("Template Location: {$file}");
-                $this->newLine();
+                //$this->newLine();
             else :
-                $this->newLine();
+                //$this->newLine();
                 $this->error('Error! Please check the views folder Permissions');
-                $this->newLine();
+                //$this->newLine();
             endif;
         else :
-            $this->newLine();
+            //$this->newLine();
             $this->error('Opss!!! File already exists, Please use different name or rename existing file');
-            $this->newLine();
+            //$this->newLine();
         endif;
     }
 
@@ -93,9 +93,9 @@ class ConsoleView extends Command
         try {
             return view("consoleview::{$type}")->render();
         } catch (Exception $e) {
-            $this->newLine();
+            //$this->newLine();
             $this->error("Error! {$e->getMessage()}");
-            $this->newLine();
+            //$this->newLine();
             exit();
         }
     }
@@ -113,9 +113,9 @@ class ConsoleView extends Command
 
         if (!is_dir($destination)) :
             if (!mkdir($destination, 0777, true)) :
-                $this->newLine();
+                //$this->newLine();
                 $this->error('Error! Please check the views folder Permissions');
-                $this->newLine();
+                //$this->newLine();
                 exit;
             endif;
         endif;
